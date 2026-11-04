@@ -1,14 +1,15 @@
 
 /* =========================================
-   1. GOOGLE FONTS
+   TEELAB - PRODUCT INTERFACE DESIGN
+   STEP 4: CSS SELECTOR & BOX MODEL
 ========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
 
 
 /* =========================================
-   2. ROOT VARIABLES
+   1. GOOGLE FONT & ROOT VARIABLES
 ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
 
 :root {
     --primary-color: #171717;
@@ -26,7 +27,7 @@
 
 
 /* =========================================
-   3. RESET & GLOBAL STYLES
+   2. ELEMENT SELECTOR & RESET
 ========================================= */
 
 * {
@@ -44,7 +45,12 @@ body {
     color: var(--primary-color);
     background-color: var(--white-color);
     line-height: 1.6;
-    font-size: 14px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 a {
@@ -52,57 +58,46 @@ a {
     text-decoration: none;
 }
 
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-ul,
-ol {
-    list-style: none;
-}
-
 button,
 input {
-    font-family: inherit;
+    font: inherit;
 }
 
 
 /* =========================================
-   4. HEADER
+   3. HEADER
 ========================================= */
 
 .site-header {
     width: 100%;
-    height: 82px;
+    height: 80px;
     background-color: var(--white-color);
     border-bottom: 1px solid var(--border-color);
 
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .header-container {
-    width: min(100% - 80px, var(--container-width));
+    max-width: var(--container-width);
     height: 100%;
     margin: 0 auto;
+    padding: 0 24px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
 }
 
 
 /* Logo */
 
 .logo {
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: -1.5px;
     color: var(--primary-color);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -1px;
     white-space: nowrap;
 }
 
@@ -116,12 +111,10 @@ input {
 .main-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .nav-list {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 32px;
@@ -132,61 +125,52 @@ input {
 }
 
 .nav-list li {
-    display: flex;
-    align-items: center;
+    list-style: none;
 }
 
 .nav-list a {
     display: inline-block;
 
-    font-size: 11px;
+    color: var(--primary-color);
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
 
-    color: var(--secondary-color);
     white-space: nowrap;
-
     transition: color 0.3s ease;
 }
 
 .nav-list a:hover,
 .nav-list a.active {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 
-/* Header Actions */
+/* Header actions */
 
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 18px;
 }
 
 .header-icon {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     position: relative;
-    color: var(--primary-color);
-
-    transition: opacity 0.3s ease;
-}
-
-.header-icon:hover {
-    opacity: 0.6;
 }
 
 .header-icon svg {
-    width: 22px;
-    height: 22px;
+    width: 21px;
+    height: 21px;
 
     fill: none;
-    stroke: currentColor;
+    stroke: var(--primary-color);
     stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -204,35 +188,35 @@ input {
     align-items: center;
     justify-content: center;
 
+    border-radius: 50%;
     background-color: var(--primary-color);
     color: var(--white-color);
 
-    border-radius: 50%;
     font-size: 9px;
     font-weight: 600;
 }
 
 
 /* =========================================
-   5. PAGE INTRODUCTION
+   4. PAGE INTRODUCTION
 ========================================= */
 
 .page-intro {
-    width: min(100% - 80px, var(--container-width));
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 55px 0 65px;
+    padding: 42px 24px 48px;
 }
 
 .breadcrumb {
-    margin-bottom: 35px;
+    margin-bottom: 32px;
 
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.7px;
     color: var(--secondary-color);
+    font-size: 11px;
+    letter-spacing: 0.5px;
 }
 
 .breadcrumb a {
+    color: var(--secondary-color);
     transition: color 0.3s ease;
 }
 
@@ -244,74 +228,71 @@ input {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 30px;
+    gap: 24px;
 }
 
 .section-label {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
-    font-size: 10px;
+    color: var(--accent-color);
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: var(--secondary-color);
 }
 
 .intro-content h1 {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: 32px;
     font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
+    line-height: 1.3;
 }
 
 .intro-description {
-    max-width: 540px;
+    max-width: 520px;
 
-    font-size: 13px;
     color: var(--secondary-color);
-    line-height: 1.8;
+    font-size: 13px;
 }
 
 .product-total {
-    flex-shrink: 0;
-
+    color: var(--secondary-color);
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.8px;
-    color: var(--secondary-color);
+    white-space: nowrap;
 }
 
 
 /* =========================================
-   6. PRODUCT SECTION
+   5. PRODUCT SECTION
 ========================================= */
 
 .product-section {
-    width: min(100% - 80px, var(--container-width));
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding-bottom: 100px;
+    padding: 20px 24px 80px;
 }
 
 .section-heading {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .section-heading h2 {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 800;
     letter-spacing: 0.5px;
 }
 
 .section-heading p {
-    font-size: 12px;
     color: var(--secondary-color);
+    font-size: 12px;
 }
 
 
-/* Product Grid */
+/* Product grid */
 
 .product-grid {
     display: grid;
@@ -321,35 +302,51 @@ input {
 
 
 /* =========================================
-   7. PRODUCT CARD
+   6. STEP 4 - CSS SELECTOR & BOX MODEL
 ========================================= */
 
-.product-card {
-    min-width: 0;
 
+/* CLASS SELECTOR: Product card */
+
+.product-card {
     display: flex;
     flex-direction: column;
 
+    /* Box Model */
+    margin: 0;
+    padding: 12px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
     background-color: var(--white-color);
+    overflow: hidden;
+
+    transition: box-shadow 0.3s ease,
+                transform 0.3s ease;
 }
 
 
-/* Product Image */
+/* Product card hover */
+
+.product-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+}
+
+
+/* Product image */
 
 .product-image {
+    position: relative;
+
     width: 100%;
     aspect-ratio: 3 / 4;
 
-    position: relative;
     overflow: hidden;
+    border-radius: 4px;
 
     background-color: var(--light-color);
-}
-
-.product-image > a {
-    display: block;
-    width: 100%;
-    height: 100%;
 }
 
 .product-image img {
@@ -358,176 +355,173 @@ input {
 
     object-fit: cover;
 
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
+
+
+/* DESCENDANT SELECTOR */
 
 .product-card:hover .product-image img {
     transform: scale(1.04);
 }
 
 
-/* Discount Badge */
+/* Discount badge */
 
 .discount-badge {
     position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
+    top: 12px;
+    left: 12px;
 
-    padding: 6px 10px;
+    padding: 5px 9px;
+    border-radius: 3px;
 
-    background-color: var(--white-color);
-    color: var(--sale-color);
+    background-color: var(--sale-color);
+    color: var(--white-color);
 
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.3px;
 }
 
 
-/* Product Information */
+/* Product information */
 
 .product-info {
-    flex: 1;
-
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    flex: 1;
 
-    padding-top: 16px;
+    padding: 14px 4px 4px;
 }
 
-.product-brand {
+
+/* Product brand */
+
+.product-card .product-brand {
     margin-bottom: 5px;
 
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
     color: var(--secondary-color);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.product-name {
+
+/* Product name */
+
+.product-card .product-name {
     min-height: 42px;
-    margin-bottom: 10px;
+    margin: 0 0 8px;
 
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
     line-height: 1.5;
-    letter-spacing: 0.1px;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
-.product-name a {
+.product-card .product-name a {
+    color: var(--primary-color);
+    text-decoration: none;
+
     transition: color 0.3s ease;
 }
 
-.product-name a:hover {
-    color: var(--secondary-color);
-}
-
-
-/* Product Price */
-
-.product-price {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    margin-bottom: 16px;
-}
-
-.sale-price {
-    font-size: 14px;
-    font-weight: 700;
+.product-card .product-name a:hover {
     color: var(--sale-color);
 }
 
-.original-price {
-    font-size: 11px;
-    font-weight: 400;
+
+/* Product price */
+
+.product-card .product-price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 8px 0 12px;
+}
+
+.product-card .sale-price {
+    color: var(--sale-color);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.product-card .original-price {
     color: #999999;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 
-/* Product Button */
+/* Product button */
 
-.product-button {
+.product-card .product-button {
+    display: block;
     width: 100%;
-    min-height: 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     margin-top: auto;
     padding: 10px 12px;
 
     border: 1px solid var(--primary-color);
-    background-color: var(--white-color);
-    color: var(--primary-color);
+    border-radius: 4px;
 
-    font-size: 10px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-align: center;
+    text-decoration: none;
 
     transition: all 0.3s ease;
 }
 
-.product-button:hover {
-    background-color: var(--primary-color);
-    color: var(--white-color);
+.product-card .product-button:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
 }
 
 
 /* =========================================
-   8. FOOTER
+   7. FOOTER
 ========================================= */
 
 .site-footer {
-    width: 100%;
-    padding: 55px 0 25px;
-
-    background-color: #171717;
+    background-color: var(--primary-color);
     color: var(--white-color);
+
+    padding: 48px 24px;
 }
 
 .footer-container {
-    width: min(100% - 80px, var(--container-width));
+    max-width: var(--container-width);
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
 }
 
 .footer-brand .logo {
     display: inline-block;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
+
     color: var(--white-color);
 }
 
-.footer-brand .logo span {
-    color: var(--accent-color);
-}
-
 .footer-brand p {
-    max-width: 380px;
+    max-width: 350px;
 
+    color: #bdbdbd;
     font-size: 12px;
-    line-height: 1.8;
-    color: #b5b5b5;
 }
 
 .footer-contact h3 {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -535,115 +529,88 @@ input {
 .footer-contact p {
     margin-bottom: 8px;
 
-    font-size: 11px;
-    line-height: 1.8;
-    color: #b5b5b5;
-}
-
-.footer-bottom {
-    width: min(100% - 80px, var(--container-width));
-    margin: 35px auto 0;
-    padding-top: 20px;
-
-    border-top: 1px solid #393939;
-}
-
-.footer-bottom p {
-    font-size: 10px;
-    color: #999999;
+    color: #bdbdbd;
+    font-size: 12px;
 }
 
 
 /* =========================================
-   9. RESPONSIVE - TABLET
+   8. RESPONSIVE DESIGN
 ========================================= */
 
 @media (max-width: 1024px) {
 
     .header-container {
-        width: calc(100% - 50px);
-        gap: 20px;
+        padding: 0 20px;
     }
 
     .nav-list {
         gap: 18px;
     }
 
-    .nav-list a {
-        font-size: 10px;
-    }
-
     .product-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px;
+        gap: 20px;
     }
 
     .page-intro,
     .product-section {
-        width: calc(100% - 50px);
-    }
-
-    .footer-container,
-    .footer-bottom {
-        width: calc(100% - 50px);
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
 
-/* =========================================
-   10. RESPONSIVE - MOBILE
-========================================= */
-
 @media (max-width: 768px) {
+
+    /* Header */
 
     .site-header {
         height: 68px;
     }
 
     .header-container {
-        width: calc(100% - 36px);
+        padding: 0 16px;
     }
 
     .logo {
-        font-size: 25px;
+        font-size: 23px;
     }
 
-    /* Ẩn menu trên màn hình nhỏ */
     .main-nav {
         display: none;
     }
 
-    .header-actions {
-        gap: 18px;
-    }
+
+    /* Introduction */
 
     .page-intro {
-        width: calc(100% - 36px);
-        padding: 35px 0 45px;
+        padding: 30px 16px 36px;
     }
 
     .breadcrumb {
-        margin-bottom: 25px;
-        font-size: 9px;
+        margin-bottom: 24px;
     }
 
     .intro-content {
         align-items: flex-start;
         flex-direction: column;
-        gap: 15px;
+        gap: 14px;
     }
 
     .intro-content h1 {
-        font-size: 29px;
+        font-size: 26px;
     }
 
     .intro-description {
         font-size: 12px;
     }
 
+
+    /* Product section */
+
     .product-section {
-        width: calc(100% - 36px);
-        padding-bottom: 65px;
+        padding: 16px 16px 56px;
     }
 
     .section-heading h2 {
@@ -652,92 +619,60 @@ input {
 
     .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px 14px;
+        gap: 16px;
+    }
+
+    .product-card {
+        padding: 10px;
     }
 
     .product-info {
-        padding-top: 12px;
+        padding-top: 10px;
     }
 
-    .product-name {
+    .product-card .product-name {
+        min-height: 36px;
+        font-size: 13px;
+    }
+
+    .product-card .sale-price {
+        font-size: 14px;
+    }
+
+    .product-card .original-price {
         font-size: 11px;
-        min-height: 36px;
     }
 
-    .sale-price {
-        font-size: 12px;
-    }
 
-    .original-price {
-        font-size: 10px;
-    }
-
-    .product-price {
-        gap: 7px;
-    }
-
-    .product-button {
-        min-height: 36px;
-        font-size: 9px;
-    }
-
-    .discount-badge {
-        top: 10px;
-        left: 10px;
-        padding: 5px 8px;
-        font-size: 9px;
-    }
+    /* Footer */
 
     .footer-container {
-        width: calc(100% - 36px);
         grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .footer-bottom {
-        width: calc(100% - 36px);
+        gap: 28px;
     }
 }
 
 
-/* =========================================
-   11. RESPONSIVE - SMALL MOBILE
-========================================= */
-
 @media (max-width: 380px) {
 
-    .header-container {
-        width: calc(100% - 28px);
-    }
-
-    .page-intro,
-    .product-section {
-        width: calc(100% - 28px);
-    }
-
-    .intro-content h1 {
-        font-size: 25px;
-    }
-
     .product-grid {
-        gap: 24px 10px;
+        gap: 10px;
     }
 
-    .product-name {
+    .product-card {
+        padding: 8px;
+    }
+
+    .product-info {
+        padding-top: 10px;
+    }
+
+    .product-card .product-name {
+        font-size: 12px;
+    }
+
+    .product-card .product-button {
+        padding: 9px 6px;
         font-size: 10px;
-    }
-
-    .sale-price {
-        font-size: 11px;
-    }
-
-    .product-button {
-        font-size: 8px;
-        letter-spacing: 0.5px;
-    }
-
-    .footer-container,
-    .footer-bottom {
-        width: calc(100% - 28px);
     }
 }
